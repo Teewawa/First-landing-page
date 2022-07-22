@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tiny Tina's Wonderland Landing page</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    html {
+      min-height: 100%;
+      /*Assists with linear gradient bg*/
+    }
+
+    /*Header*/
+    .welcomeBar {
+      background: linear-gradient(45deg,
+          rgba(135, 236, 237, 0.9),
+          rgba(121, 88, 175, 0.8),
+          rgba(230, 159, 179, 0.8));
+      animation: gradient 7s ease infinite;
+      background-size: 200% 200%;
+      /*box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.99);*/
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23),
+        0 0 10px #aaa inset;
+      font-family: "Bebas Neue", cursive;
+      margin: 0vw 0.1vw 0vw 0.1vw;
+      max-width: 100%;
+      text-align: center;
+    }
+
+    .welcomeText {
+      font-family: "Bebas Neue", cursive;
+      font-size: 4vw;
+      margin: 0 auto;
+      color: white;
+      text-shadow: 4px 4px 6px black;
+    }
+
+    /*Intro*/
+    .welcome-banner {
+      margin: 0vw 0vw 1vw 0vw;
+      padding: 0;
+    }
+
+    .welcome-img {
+      margin: 0vw 0vw 5vw 0vw;
+      width: 80%;
+
+      display: block;
+      margin: 0 auto;
+    }
+
+    /*Navigation Bar: sticky*/
+    nav {
+      background-color: white;
+
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23),
+        0 0 10px #aaa inset;
+      font-family: "Bebas Neue", cursive;
+      height: 100%;
+      margin: 0vw 0.1vw 0vw 0.1vw;
+      max-width: 100%;
+      padding: 0.4vw;
+      position: sticky;
+      text-align: center;
+      top: 0;
+      z-index: 9999;
+      /*ensures nav is on top all other element*/
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      html {
+        scroll-behavior: smooth;
+      }
+    }
+
+    /*Navigation customization */
+    .naviOption {
+      color: black;
+      display: inline;
+      font-size: 2vw;
+      margin: 1.5vw;
+      padding: 0;
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .naviOption:hover {
+      color: rgb(252, 47, 107);
+      cursor: pointer;
+      text-shadow: 1px 2px 0px rgba(0, 0, 0, 0.596);
+    }
+
+    /*Main Background*/
+    body {
+      background: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/030/561/original/1219150.jpg?1648698812");
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin: 0vw;
+    }
+
+    /*Body: background gradients from purple to pink*/
+    .purplePink {
+      background: linear-gradient(180deg,
+          rgba(36, 9, 60, 0.8),
+          rgba(236, 180, 248, 0.6));
+      border-radius: 2.5vw;
+      height: 100%;
+      margin: 0.3vw 12vw 1vw 12vw;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23),
+        0 0 10px #aaa inset;
+    }
+
+    /*Body: background gradients from pink to purple*/
+    .pinkPurple {
+      background: linear-gradient(180deg,
+          rgba(236, 180, 248, 0.6),
+          rgba(36, 9, 60, 0.6),
+          rgba(36, 9, 60, 0.8));
+      border-radius: 2.5vw;
+      color: rgb(255, 255, 255);
+      height: 100%;
+      margin: 0.3vw 12vw 1vw 12vw;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23),
+        0 0 10px #aaa inset;
+    }
+
+    /*Body: section customizations*/
+    .customizeSection {
+      color: rgb(255, 255, 255);
+      height: 100%;
+      margin: 0vw 0.5vw 0vw 0.5vw;
+      max-width: 100%;
+      padding: 1.5rem;
+    }
+
+    .titles {
+      color: white;
+      font-family: "Bebas Neue", cursive;
+      text-align: center;
+      text-shadow: 4px 4px 6px black;
+      font-size: 4vw;
+      padding: 0;
+      margin: 0.3vw auto;
+    }
+
+    .subtitles {
+      color: white;
+      font-family: "Bebas Neue", cursive;
+      text-align: center;
+      text-shadow: 4px 4px 6px black;
+      font-size: 2.7vw;
+      margin: 0.3vw auto;
+    }
+
+    .paragraphs {
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: left;
+      text-shadow: 4px 4px 6px black;
+      font-size: 1.5vw;
+      padding: 0;
+      margin: 0.3vw 4vw 0.3vw 4vw;
+    }
+
+    .imgCenter {
+      display: block;
+      margin: 0 auto;
+    }
+
+    /*Body: Trailer*/
+    .trailer {
+      margin: 0vw 3vw 0vw 3vw;
+    }
+
+    .trailer-video {
+      display: block;
+      margin: 0 auto;
+      width: 100% !important;
+      height: 35vw !important;
+    }
+
+    /*Wonderland cards*/
+    .card-container {
+      text-align: center;
+    }
+
+    .card {
+      background-color: black;
+      border-radius: 2vw;
+      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+      display: inline-block;
+      height: 16vw;
+      position: relative;
+      outline: 3px solid rgba(255, 255, 255, 0.5);
+      outline-offset: -8px;
+      overflow: hidden;
+      width: 21vw;
+      margin: 0.2vw;
+    }
+
+    .card-image {
+      height: 100%;
+      inset: 0;
+      object-fit: cover;
+      opacity: 0.85;
+      position: absolute;
+      transition: transform 0.75s;
+      width: 100%;
+    }
+
+    .card:hover .card-image {
+      transform: scale(1.15);
+    }
+
+    .card-title {
+      bottom: 1px;
+      font-size: 2vw;
+      left: 15px;
+      position: absolute;
+      text-shadow: 4px 4px 6px black;
+    }
+
+    .buttonLinks {
+      color: black;
+      padding: 0;
+      text-decoration: none;
+    }
+
+    .seeMoreButton {
+      background-color: #fff;
+      border: 0.5px solid inset;
+      border-radius: 20px;
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.9);
+      color: #000;
+      cursor: pointer;
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      margin: 0 auto;
+      padding: 1.3em 3em;
+      outline: none;
+      text-transform: uppercase;
+      transition: all 0.3s ease 0s;
+    }
+
+    .seeMoreButton:hover {
+      background: linear-gradient(25deg,
+          rgba(255, 241, 0, 0.9),
+          rgba(49, 210, 247, 0.9),
+          rgba(46, 229, 157, 0.9));
+      animation: gradient 10s ease-in-out infinite;
+      background-size: 400% 400%;
+      box-shadow: 0 15px 20px rgba(46, 229, 157, 0.6),
+        0 3px 6px rgba(0, 0, 0, 0.23), 0 0 10px #aaa inset;
+      color: rgb(0, 0, 0);
+      font-weight: 500;
+      transform: translateY(-7px);
+    }
+
+    .seeMoreButton:active {
+      transform: translateY(-1px);
+    }
+
+    .platformContainer {
+      text-align: center;
+      padding: 1px;
+    }
+
+    .platforms {
+      color: white;
+      display: inline;
+      font-size: 2vw;
+      margin: 0.4vw;
+      padding: 0;
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .platforms:hover {
+      color: rgb(252, 47, 107);
+      cursor: pointer;
+      text-shadow: 1px 2px 0px rgba(0, 0, 0, 0.596);
+    }
+
+    .littleNote {
+      font-size: 1.3vw;
+      text-align: center;
+    }
+
+    /*Send me invite button*/
+    .sendInv {
+      background-color: #fff;
+      border: 0.5px solid inset;
+      border-radius: 20px;
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.9);
+      color: #000;
+      cursor: pointer;
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      margin: 0 auto;
+      padding: 1.3em 3em;
+      outline: none;
+      text-transform: uppercase;
+      transition: all 0.3s ease 0s;
+    }
+
+    .sendInv:hover {
+      background: linear-gradient(25deg,
+          rgba(255, 241, 0, 0.9),
+          rgba(49, 210, 247, 0.9),
+          rgba(46, 229, 157, 0.9));
+      animation: gradient 10s ease-in-out infinite;
+      background-size: 400% 400%;
+      box-shadow: 0 15px 20px rgba(46, 229, 157, 0.6),
+        0 3px 6px rgba(0, 0, 0, 0.23), 0 0 10px #aaa inset;
+      color: rgb(0, 0, 0);
+      font-weight: 500;
+      transform: translateY(-7px);
+    }
+
+    .sendInv:active {
+      transform: translateY(-1px);
+    }
+
+    /*Footer*/
+    .footer {
+      color: white;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <!--Header: Welcome message at top of page-->
+  <div class="welcomeBar">
+    <h1 class="welcomeText">COME ON IN, YOU'RE MISSING ALL THE FUN!!</h1>
+  </div>
+
+  <!--Navigation bar: selection with links-->
+  <nav>
+    <a href="https://en.wikipedia.org/wiki/Tiny_Tina%27s_Wonderlands" class="naviOption" target="_blank">About ✨</a>
+    <a href="https://playwonderlands.2k.com/news/" class="naviOption" target="_blank">News 📰</a>
+
+    <a href="https://playwonderlands.2k.com/community/" class="naviOption" target="_blank">Community 💭</a>
+
+    <a href="https://playwonderlands.2k.com/game-guide/" class="naviOption" target="_blank">Game Guide 🧠</a>
+    <a href="https://playwonderlands.2k.com/buy/" class="naviOption" target="_blank">Play Now! 🎲</a>
+  </nav>
+
+  <!--Header: Tiny Tina's WonderLands Image-->
+  <div class="banner-container">
+    <div class="welcome-banner">
+      <img
+        src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/030/541/original/WelcomeBanner.png?1648683760"
+        alt="Purple dragon scale background, left: Wonderland Logo, center:Tiny Tina." class="welcome-img" />
+    </div>
+  </div>
+
+  <!--Introduction: Trailer Video-->
+  <div class="purplePink">
+    <div class="customizeSection">
+      <h2 class="titles">Embark on an epic adventure!💥</h2>
+      <div class="trailer">
+        <iframe class="trailer-video" src="https://www.youtube.com/embed/E7z4d_PsxIo" title="YouTube video player"
+          frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe>
+      </div>
+      <br />
+      <a href="https://playwonderlands.2k.com/media/" class="buttonLinks" target="_blank"><button class="seeMoreButton"
+          type="button">Show me more!</button></a>
+    </div>
+  </div>
+
+  <!--Body: Wonderlands images with links and more button-->
+  <div class="pinkPurple">
+    <div class="customizeSection">
+      <!--Wonderlands with titles-->
+      <div class="card-container">
+        <div class="card">
+          <a href="https://borderlands.fandom.com/wiki/Brighthoof" target="_blank">
+            <img
+              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/030/736/original/Tiny-Tinas-Wonderlands-Brighthoof.jpg?1648857380"
+              alt="Brighthoof" class="card-image" /></a>
+          <h3 class="card-title">Brighthoof</h3>
+        </div>
+
+        <div class="card">
+          <a href="https://borderlands.fandom.com/wiki/Butt_Stallion%27s_Castle" target="_blank"><img
+              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/030/708/original/butt_stallion_castle.PNG?1648840914"
+              alt="Butt Stallion's Castle" class="card-image" /></a>
+          <h3 class="card-title">Butt Stallion's Castle</h3>
+        </div>
+
+        <div class="card">
+          <a href="https://borderlands.fandom.com/wiki/Weepwild_Dankness" target="_blank"><img
+              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/030/727/original/weepwild_dankness.PNG?1648856969"
+              alt="Weep Dankness" class="card-image" /></a>
+          <h3 class="card-title">Weepwild Dankness</h3>
+        </div>
+        <br />
+        <hr />
+        <h3 class="titles">
+          Fight against evil while exploring the <br />
+          <h3 class="titles">unpredictable Wonderlands!</h3>
+        </h3>
+        <hr />
+        <div class="card">
+          <a href="https://borderlands.fandom.com/wiki/Mount_Craw" target="_blank"><img
+              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/030/730/original/mount_craw.PNG?1648857198"
+              alt="Mount Craw" class="card-image" /></a>
+          <h3 class="card-title">Mount Craw</h3>
+        </div>
+
+        <div class="card">
+          <a href="https://borderlands.fandom.com/wiki/Sunfang_Oasis" target="_blank"><img
+              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/030/732/original/sunfan_oasis.PNG?1648857273"
+              alt="Sunfang Oasis" class="card-image" /></a>
+          <h3 class="card-title">Sunfang Oasis</h3>
+        </div>
+
+        <div class="card">
+          <a href="https://borderlands.fandom.com/wiki/Drowned_Abyss" target="_blank"><img
+              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/030/731/original/drowned_abyss.PNG?1648857232"
+              alt="Drowned Abyss" class="card-image" /></a>
+          <h3 class="card-title">Drowned Abyss</h3>
+        </div>
+      </div>
+      <br />
+      <a href="https://playwonderlands.2k.com/game-guide/world/" class="buttonLinks" target="_blank"><button
+          class="seeMoreButton" type="button">
+          See more Wonderlands
+        </button></a>
+    </div>
+  </div>
+
+  <!--Body: Personalize Fatemaker Section-->
+  <div class="purplePink">
+    <div class="customizeSection">
+      <h2 class="titles">Personalize your Fatemaker!</h2>
+      <h3 class="subtitles">✨ Apperance have no impact on your build✨</h3>
+      <img
+        src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/031/576/original/characterCustomization.PNG?1649653969"
+        class="imgCenter" alt="Exaggerated features in character creation menu" width="55%"
+        style="float: right; margin-right: 15px" />
+      <span>
+        <p class="paragraphs">
+          Get creative, with individual eyes and ears to facial hair,
+          eyelashes, facial tattoos, and makeup. Exaggerate physical features
+          in Overdrive mode allowing you to adjust the size, position, and
+          angles of your Fatemaker's features! Also pick from several
+          personalities, voices, and armor patterns and colors for everything!
+          <br /><br />
+          <em>Unlock more customizations as you play!!</em>🙀🙀🙀
+        </p>
+      </span>
+    </div>
+  </div>
+
+  <!--Body: Co-Op, multiplayer, and platforms Section-->
+  <div class="pinkPurple">
+    <div class="customizeSection">
+      <h2 class="titles">BAND TOGETHER IN CHAOTIC CO-OP</h2>
+      <img
+        src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/030/717/original/featured-tiny-tinas-wonderlands-all-class-feats.jpg?1648848592"
+        class="imgCenter" alt="Four fatemaker in armor and holding weapons" width="55%"
+        style="float: left; margin-right: 15px" />
+
+      <span>
+        <p class="paragraphs">
+          Have up to four Fatemakers uniting to save the queendom! 🦄 The more
+          players there are, the tougher 💪🏽 your foes! Play online or local
+          split screen, with two-player split screen supported on PS4, Xbox One,
+          and four-player split screen supported on PS5 and Xbox Series X & S.
+          Choose how loot drops and ememy scaling are handled during
+          multiplayer via the Multiplayer settings in the Main Menu.
+        </p>
+      </span>
+      <br />
+      <br />
+      <hr />
+      <h3 class="subtitles">AVAILABLE ON MULTIPLE PLATFORMS</h3>
+      <ul class="platformContainer">
+        <li class="platforms">
+          <a href="https://store.playstation.com/en-us/product/UP1001-PPSA01492_00-TTWPREMIUMSIEA00/" target="_blank"
+            class="platforms">
+            <strong>PS4</strong>
+          </a>
+        </li>
+
+        <li class="platforms">
+          <a href="https://store.playstation.com/en-us/product/UP1001-PPSA01492_00-TTWPREMIUMSIEA00/" target="_blank"
+            class="platforms">
+            <strong>PS5</strong>
+          </a>
+        </li>
+        <li class="naviOption">
+          <a href="https://www.xbox.com/en-us/games/store/tiny-tinas-wonderlands-chaotic-great-edition/9n61fl5wccf6?rtc=1"
+            target="_blank" class="platforms">
+            <strong>Xbox One</strong>
+          </a>
+        </li>
+
+        <li class="platforms">
+          <a href="https://www.xbox.com/en-us/games/store/tiny-tinas-wonderlands-chaotic-great-edition/9n61fl5wccf6?rtc=1"
+            target="_blank" class="platforms">
+            <strong>Xbox Series X|S</strong>
+          </a>
+        </li>
+        <li class="platforms">
+          <a href="https://store.epicgames.com/en-US/p/tiny-tinas-wonderlands--chaotic-great-edition" target="_blank"
+            class="platforms">
+            <strong>Epic Games</strong>
+          </a>
+        </li>
+        <li class="platforms">
+          <a href="https://store.steampowered.com/app/1286680/Tiny_Tinas_Wonderlands/" target="_blank"
+            class="platforms">
+            <strong>Steam</strong>
+          </a>
+        </li>
+      </ul>
+      <span>
+        <p class="littleNote">
+          <em>Click on a platform to buy now!👀</em>
+        </p>
+      </span>
+    </div>
+  </div>
+
+  <!--Body: Join me Section-->
+  <div class="purplePink">
+    <div class="customizeSection">
+      <h6 class="titles">WHAT ARE YOU WAITING FOR?</h6>
+      <br />
+      <button class="sendInv" role="button">Send me an invite!</button>
+      <br />
+      <h1 class="titles">👾👾👾</h1>
+    </div>
+  </div>
+
+  <!--Footer: credits-->
+  <p class="footer"><strong>Coded by Tiara Mendiola</strong></p>
+  <script>
+    //Function to update the h6
+    function updateInvite(newHeading) {
+      let h6Greeting = document.querySelector("h6");
+      h6Greeting.innerHTML = newHeading;
+    }
+
+    //Function that runs on when 'Send me an Invite' button is clicked
+    function clickedSendInv() {
+      let name = prompt("What is your first name?");
+      validName = name.trim(); //removes space before and after
+      let letters = /^[A-Za-z]+$/; //Checks if entry is letters, not numbers
+      if (validName.match(letters)) {
+        let platform = prompt(
+          "Do you play on Playstation, Xbox, Epic Games, or Steam?"
+        );
+        let console = platform.toLowerCase();
+        if (
+          console === "playstation" ||
+          console === "xbox" ||
+          console === "epic games" ||
+          console === "steam"
+        ) {
+          let username = prompt("What is your Username?");
+          updateInvite(
+            `Hello ${name}! 👋🏼👋🏼👋🏼<br /> I'll be sending an invite to ${username} <br /> from my ${platform} account soon!`
+          );
+        } else {
+          alert("Please enter a valid platform from the list provided.");
+        }
+      } else {
+        alert("Please enter a valid first name.");
+      }
+    }
+
+    //Select button on the page
+    let invButton = document.querySelector(".sendInv");
+
+    //Event when selected button is clicked then calls function
+    invButton.addEventListener("click", clickedSendInv);
+  </script>
+</body>
+
+</html>
